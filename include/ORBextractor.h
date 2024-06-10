@@ -23,9 +23,9 @@
 
 #include <vector>
 #include <list>
-#include <opencv/cv.h>
-#include <Eigen/StdVector>
-
+#include <opencv2/opencv.hpp>
+//#include <eigen.h>
+#include <eigen3/Eigen/Dense>
 
 namespace USLAM
 {

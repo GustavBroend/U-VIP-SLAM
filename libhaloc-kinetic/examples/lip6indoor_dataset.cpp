@@ -97,7 +97,7 @@ int main(int argc, char** argv) {
     // Open the image
     std::string filename = it->filename().string();
     std::string path = img_dir + "/" + filename;
-    cv::Mat img = cv::imread(path, CV_LOAD_IMAGE_COLOR);
+    cv::Mat img = cv::imread(path, cv::IMREAD_COLOR);
     ROS_INFO_STREAM("Reading image " << filename);
 
     // Extract keypoints and descriptors
@@ -143,7 +143,7 @@ int main(int argc, char** argv) {
       for (uint j=0; j < hash_table.size(); ++j) {
         int dist_original = 0;
         int dist = 0;
-        int neighbourhood = abs(i-j);
+        int neighbourhood = abs(int(i-j));
         if (neighbourhood > 20 && j < i) {
           dist_original = haloc.CalcDist(hash_table[i], hash_table[j], eps);
           if (dist_original > 3) great_3++;
